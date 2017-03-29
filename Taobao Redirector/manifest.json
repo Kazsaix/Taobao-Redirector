@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Taobao Link Converter",
+  "description": "This extension changes mobile and world taobao links to normal links",
+  "version": "0.01",
+  "permissions": [
+    "webRequest",
+    "*://*.taobao.com/*",
+    "*://taobao.com/*",
+    "webRequestBlocking"
+  ],
+  "background":{"scripts":["background.js"]}
+}
