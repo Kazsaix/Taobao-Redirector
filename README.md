@@ -6,4 +6,4 @@ All I really did was package his website taobaotools.github.io into an extension
 
 TODO
 =====================================
-Fix /auction/noitem.htm infinte redirects
+Make better logo
