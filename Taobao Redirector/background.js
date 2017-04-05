@@ -40,6 +40,8 @@ function convertURL(str) {
         // Already valid Taobao URL, canonacalise it
         return buildTaobaoURL(str, 'id=', false);
     }
+  } else {
+    return str;
   }
 }
 
@@ -85,7 +87,16 @@ function isTaobaoURL(str) {
         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
         '(\\?[;&a-z\\d%_.~+=-]*)?'+
         '(\\#[-a-z\\d_]*)?$','i');
-    return urlPattern.test(str) && str.indexOf('taobao.com') != -1;
+    return urlPattern.test(str) && isValidTaobaoLink(str);
+}
+
+
+/**
+ * Given a character, check whether it is a digit or not by converting to ASCII code
+ */
+function isDigit(char) {
+    char = char.charCodeAt(0);
+    return char >= 48 && char <= 57;
 }
 
 
@@ -98,16 +109,28 @@ function contains(str, query) {
 
 
 /**
- * Given a character, check whether it is a digit or not by converting to ASCII code
+ * Given a string URL, checks whether it should be a taoboa link that should be ignored
  */
-function isDigit(char) {
-    char = char.charCodeAt(0);
-    return char >= 48 && char <= 57;
+function isValidTaobaoLink(str) {
+    var ignore = ['auction/noitem','favorite','member1','login','i.taobao','cart','mai','vip','service','110.taobao','pro','t.taobao','msg','buyertrade','rate','marketingop','search','lu','guang','shoucang','click'];
+    if (contains(str,'taobao.com')) {
+        var validtaolink = true;
+        var stop = ignore.length;
+            for(var i = 0; i < stop; i++) {
+                if(contains(str,ignore[i])) {
+                    validtaolink = false;
+      }
+    }
+        return validtaolink;
+  } else {
+      return false;
+  }
 }
+
+
 /**
  * Chrome extension redirector
  */
-
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
          return {redirectUrl: convertURL(details.url) };
