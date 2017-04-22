@@ -112,13 +112,14 @@ function contains(str, query) {
  * Given a string URL, checks whether it should be a taoboa link that should be ignored
  */
 function isValidTaobaoLink(str) {
-    var ignore = ['auction/noitem','favorite','member1','login','i.taobao','cart','mai','vip','service','110.taobao','pro','t.taobao','msg','buyertrade','rate','marketingop','search','lu','guang','shoucang','click'];
+    var ignore = ['auction/noitem','favorite','member1','login','i.taobao','cart','vip','service','buy.taobao','110.taobao','pro','t.taobao','msg','buyertrade','2.taobao','rate','marketingop','search','lu','guang','shoucang','click'];
     if (contains(str,'taobao.com')) {
         var validtaolink = true;
         var stop = ignore.length;
             for(var i = 0; i < stop; i++) {
                 if(contains(str,ignore[i])) {
                     validtaolink = false;
+                    break;
       }
     }
         return validtaolink;
