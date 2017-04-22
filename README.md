@@ -10,9 +10,11 @@ Enable Chrome Extensions Developer Mode in Chrome.
 In Settings > Extensions click "Load unpacked extension" and select the chrome/ subfolder of this repository.
 
 
-# TODO
-Make better logo
-Options popup
-	Maybe off/on
-	redirect world switch?
+## Todo
+1. Improve logic for ignoring sites
+	1.1 Maybe only change certain formats of links that corresponds to item/shop
+2. Make better logo
+3. Options popup
+4. Maybe off/on button
+5. redirect world switch?
 	
