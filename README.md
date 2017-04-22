@@ -6,9 +6,12 @@ A huge thanks to Will (/u/ugwu123) for creating the logic behind converting to d
 All I really did was package his website taobaotools.github.io into an extension
 
 ## Install Chrome
-Enable Chrome Extensions Developer Mode in Chrome.
-In Settings > Extensions click "Load unpacked extension" and select the chrome/ subfolder of this repository.
-
+Chrome Store links will come soon, once extension doesn't break site functionality when purchasing 
+1. In Chrome, open chrome://extensions/
+2. Click + Developer mode
+3. Click Load unpacked extension…
+4. Navigate to the extension’s folder and click OK
+5. (Optional) Delete the (extracted) folder (the extension was copied) 
 
 ## Todo
 1. Improve logic for ignoring sites
